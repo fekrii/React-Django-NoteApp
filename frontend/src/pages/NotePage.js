@@ -10,7 +10,7 @@ const NotePage = () => {
 
   const getFilteredNote = async () => {
     if (id !== "new") {
-      const response = await fetch(`http://localhost:8000/api/notes/${id}`);
+      const response = await fetch(`/api/notes/${id}`);
       const data = await response.json();
       setNote(data);
     }
@@ -22,7 +22,7 @@ const NotePage = () => {
 
   // Update note function
   const updateNote = async () => {
-    await fetch(`http://localhost:8000/api/notes/${id}/update`, {
+    await fetch(`/api/notes/${id}/update`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(note),
@@ -31,7 +31,7 @@ const NotePage = () => {
 
   // Delete note function
   const deleteNote = async () => {
-    await fetch(`http://localhost:8000/api/notes/${id}/delete`, {
+    await fetch(`/api/notes/${id}/delete`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       // body: JSON.stringify(note),
@@ -41,7 +41,7 @@ const NotePage = () => {
 
   // Create note function
   const createNote = async () => {
-    await fetch(`http://localhost:8000/api/notes/new`, {
+    await fetch(`/api/notes/new`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(note),
